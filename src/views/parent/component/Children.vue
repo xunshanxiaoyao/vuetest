@@ -1,33 +1,41 @@
 <template>
   <div>
-    parent
+    children
+    {{title}} <br/>
     {{num}}
-    <button @click="addNum()">+1</button>
-    <Children title="title" :num="num"></Children>
   </div>
 </template>
 
 <script>
-import Children from './component/Children'
 // 这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 export default {
-  name: 'Parent',
+  name: 'Children',
   components: {
-      Children
   },
   // 定义属性
   data() {
     return {
-      num: 0
+      
     }
+  },
+  props: {
+      title: {
+          type: String,
+          default: '123'
+      },
+      num: {
+          type: Number,
+          default: 0
+      }
+  },
+  // 计算属性，会监听依赖属性值随之变化
+  computed: {
   },
   // 监控data中的数据变化
   watch: {},
   // 方法集合
   methods: {
-    addNum() {
-        ++this.num;
-    }
+    
   },
   // 生命周期 - 创建完成（可以访问当前this实例）
   created() {
