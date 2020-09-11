@@ -1,9 +1,16 @@
 <template>
   <div>
     parent
-    {{num}}
+    {{num}}<br/>
+    {{childrenMsg}} <br/>
     <button @click="addNum()">+1</button>
-    <Children title="title" :num="num"></Children>
+    <Children title="title" :num="num" @childFn="childrenFN" >
+        <!-- 插槽文案 -->
+        <div>
+            <p>p标签</p>
+            <span>span标签</span>
+        </div> 
+    </Children>
   </div>
 </template>
 
@@ -18,7 +25,8 @@ export default {
   // 定义属性
   data() {
     return {
-      num: 0
+      num: 0,
+      childrenMsg: ''
     }
   },
   // 监控data中的数据变化
@@ -27,6 +35,9 @@ export default {
   methods: {
     addNum() {
         ++this.num;
+    },
+    childrenFN(msg) {
+        this.childrenMsg = msg;
     }
   },
   // 生命周期 - 创建完成（可以访问当前this实例）

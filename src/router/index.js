@@ -14,7 +14,14 @@ const routes = [
     }, {
         path: '/about',
         name: 'About',
-        component: () => import('@/views/About.vue')
+        component: () => import('@/views/about/About.vue'),
+        children: [
+            {
+                path: 'main',
+                name: 'Main',
+                component: () => import('@/views/about/Main.vue')
+            }
+        ]
     }, {
         path: '/parent',
         name: 'Parent',
@@ -25,7 +32,7 @@ const routes = [
         component: () => import('@/views/login/Login.vue')
     }, {
         path: '*',
-        component: () => import('@/views/login/Login.vue')
+        redirect: '/login'
     }
 ];
 

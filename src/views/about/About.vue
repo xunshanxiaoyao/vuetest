@@ -1,6 +1,7 @@
 <template>
   <div class="about">
     <h1 v-for="item in list" :key="item.id">{{item.name}}</h1>
+    <router-view></router-view>
   </div>
 </template>
 
