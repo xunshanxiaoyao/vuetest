@@ -12,14 +12,19 @@
 </template>
 
 <script>
+import { MyMiXin } from '@/assets/mixins.js'
 // @ is an alias to /src
 export default {
   name: 'Home',
+  mixins: [ MyMiXin ],
   data () {
     return  {
       todoList: [],
-      inputItem: ''
+      inputItem: '' 
     }
+  },
+  created() {
+    console.log(this.item)
   },
   mounted () {
     // this.todoList = this.getList();
