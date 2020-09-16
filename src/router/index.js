@@ -17,12 +17,16 @@ const routes = [
         component: () => import('@/views/about/About.vue'),
         children: [
             {
-                path: 'main',
+                path: ':id',
                 name: 'Main',
                 component: () => import('@/views/about/Main.vue')
             }
         ]
     }, {
+        path: '/game',
+        name: 'Game',
+        component: () => import('@/views/game/Game.vue')
+    },{
         path: '/parent',
         name: 'Parent',
         component: () => import("@/views/parent/Parent.vue")
